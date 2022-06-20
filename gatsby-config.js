@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     siteTitle: 'Kris Running Page',
     siteUrl: 'https://run.chixq.com',
-    logo: 'https://github.com/chixq/running_page/blob/4a6ef05a3456076465087f68c6f7263a4a6794c7/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220620211943.jpg',
+    logo: 'https://github.com/chixq/running_page/blob/a914ae46306d8cfc298361425c746495e99a5edd/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220620211943.jpg?raw=true',
     description: '飞致云南区跑步记录',
     navLinks: [
       {
