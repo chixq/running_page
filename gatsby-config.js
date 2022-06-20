@@ -1,18 +1,18 @@
 module.exports = {
   pathPrefix: '/', // Change to `/running_page` when running on github pages
   siteMetadata: {
-    siteTitle: 'Running Page',
-    siteUrl: 'https://yihong.run',
-    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtc69JxHNcmN1ETpMUX4dozAgAN6iPjWalQ&usqp=CAU',
-    description: 'Personal site and blog',
+    siteTitle: 'Kris Running Page',
+    siteUrl: 'https://run.chixq.com',
+    logo: 'https://github.com/chixq/running_page/blob/4a6ef05a3456076465087f68c6f7263a4a6794c7/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220620211943.jpg',
+    description: '飞致云南区跑步记录',
     navLinks: [
       {
         name: 'Blog',
-        url: 'https://yihong.run/running',
+        url: 'https://chixq.com',
       },
       {
         name: 'About',
-        url: 'https://github.com/yihong0618/running_page/blob/master/README-CN.md',
+        url: 'https://chixq.com',
       },
     ],
   },
