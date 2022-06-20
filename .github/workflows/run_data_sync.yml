@@ -16,7 +16,6 @@ on:
       - scripts/keep_sync.py
       - scripts/gpx_sync.py
       - requirements.txt
-
 env:
   # please change to your own config.
   RUN_TYPE: keep # support strava/nike/garmin/garmin_cn/keep/only_gpx/nike_to_strava/strava_to_garmin/strava_to_garmin_cn, Please change the 'pass' it to your own
@@ -26,14 +25,12 @@ env:
   TITLE_GRID: Over 2km Runs # also here
   GITHUB_NAME: chixq
   GITHUB_EMAIL: chilaoqi@gmail.com
-  KEEP_PHONE: ${{ secrets.action.KEEP_MOBILE }}
-  KEEP_PASSWORD: ${{ secrets.action.KEEP_PASSWORD }}
-  NIKE_REFRESH_TOKEN: ${{ secrets.action.NIKE_REFRESH_TOKEN }}
 
 jobs:
   sync:
     name: Sync
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -63,12 +60,12 @@ jobs:
       - name: Run sync Nike script
         if: env.RUN_TYPE == 'nike'
         run: |
-          python scripts/nike_sync.py ${{ env.NIKE_REFRESH_TOKEN }}
+          python scripts/nike_sync.py ${{ secrets.NIKE_REFRESH_TOKEN }}
 
       - name: Run sync Keep script
         if: env.RUN_TYPE == 'keep'
         run: |
-          python scripts/keep_sync.py ${{ env.KEEP_MOBILE }} ${{ env.KEEP_PASSWORD }} --with-gpx
+          python scripts/keep_sync.py ${{ secrets.action.KEEP_MOBILE }} ${{ secrets.KEEP_PASSWORD }} --with-gpx
 
       - name: Make svg GitHub profile
         if: env.RUN_TYPE != 'pass'
