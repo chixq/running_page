@@ -26,9 +26,9 @@ env:
   TITLE_GRID: Over 2km Runs # also here
   GITHUB_NAME: chixq
   GITHUB_EMAIL: chilaoqi@gmail.com
-  KEEP_PHONE: ${{ secrets.KEEP_MOBILE }}
-  KEEP_PASSWORD: ${{ secrets.KEEP_PASSWORD }}
-  NIKE_REFRESH_TOKEN: ${{ secrets.NIKE_REFRESH_TOKEN }}
+  KEEP_PHONE: ${{ secrets.action.KEEP_MOBILE }}
+  KEEP_PASSWORD: ${{ secrets.action.KEEP_PASSWORD }}
+  NIKE_REFRESH_TOKEN: ${{ secrets.action.NIKE_REFRESH_TOKEN }}
 
 jobs:
   sync:
