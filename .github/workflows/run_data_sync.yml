@@ -26,6 +26,9 @@ env:
   TITLE_GRID: Over 2km Runs # also here
   GITHUB_NAME: chixq
   GITHUB_EMAIL: chilaoqi@gmail.com
+  KEEP_PHONE: ${{ secrets.KEEP_MOBILE }}
+  KEEP_PASSWORD: ${{ secrets.KEEP_PASSWORD }}
+  NIKE_REFRESH_TOKEN: ${{ secrets.NIKE_REFRESH_TOKEN }}
 
 jobs:
   sync:
@@ -60,7 +63,7 @@ jobs:
       - name: Run sync Nike script
         if: env.RUN_TYPE == 'nike'
         run: |
-          python scripts/nike_sync.py ${{ secrets.NIKE_REFRESH_TOKEN }}
+          python scripts/nike_sync.py ${{ env.NIKE_REFRESH_TOKEN }}
 
       - name: Run sync Nike to Strava(Run with nike data backup and show with strava)
         if: env.RUN_TYPE == 'nike_to_strava'
@@ -70,7 +73,7 @@ jobs:
       - name: Run sync Keep script
         if: env.RUN_TYPE == 'keep'
         run: |
-          python scripts/keep_sync.py ${{ secrets.KEEP_MOBILE }} ${{ secrets.KEEP_PASSWORD }} --with-gpx
+          python scripts/keep_sync.py ${{ env.KEEP_MOBILE }} ${{ env.KEEP_PASSWORD }} --with-gpx
 
       - name: Run sync Strava script
         if: env.RUN_TYPE == 'strava'
