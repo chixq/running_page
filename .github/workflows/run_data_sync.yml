@@ -18,7 +18,7 @@ on:
       - requirements.txt
 env:
   # please change to your own config.
-  RUN_TYPE: nike # support strava/nike/garmin/garmin_cn/keep/only_gpx/nike_to_strava/strava_to_garmin/strava_to_garmin_cn, Please change the 'pass' it to your own
+  RUN_TYPE: nike_keep # support strava/nike/garmin/garmin_cn/keep/only_gpx/nike_to_strava/strava_to_garmin/strava_to_garmin_cn, Please change the 'pass' it to your own
   ATHLETE: Kris
   TITLE: Kris Running
   MIN_GRID_DISTANCE: 2 # change min distance here
@@ -58,9 +58,10 @@ jobs:
         if: steps.pip-cache.outputs.cache-hit != 'true'
 
       - name: Run sync Nike script
-        if: env.RUN_TYPE == 'nike'
+        if: env.RUN_TYPE == 'nike_keep'
         run: |
           python scripts/nike_sync.py ${{ secrets.NIKE_REFRESH_TOKEN }}
+          python scripts/keep_sync.py ${{ secrets.KEEP_MOBILE }} ${{ secrets.KEEP_PASSWORD }} --with-gpx
 
       - name: Run sync Keep script
         if: env.RUN_TYPE == 'keep'
