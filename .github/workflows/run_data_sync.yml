@@ -62,6 +62,7 @@ jobs:
       - name: Run sync Nike script
         if: env.RUN_TYPE == 'nike_keep'
         run: |
+          python scripts/nike_sync.py ${{ secrets.NIKE_REFRESH_TOKEN }}
           python scripts/keep_sync.py ${{ secrets.KEEP_MOBILE }} ${{ secrets.KEEP_PASSWORD }} --with-gpx
 
       - name: Run sync Keep script
